@@ -1,11 +1,8 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
+import UsersList from "../components/dashboard/users/list";
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      test
-    </div>
-  )
-}
+	return <UsersList />;
+};
 
-export default Home
+export default Home;
