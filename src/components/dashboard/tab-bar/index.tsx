@@ -15,7 +15,7 @@ const TabBar = () => {
 			dir="col"
 			justify="between"
 			align="center"
-			className="bg-white w-[6.25rem] h-full pt-8 pb-[3.125rem]"
+			className="bg-white min-w-[6.25rem] h-full pt-8 pb-[3.125rem]"
 		>
 			<Flex dir="col" className="space-y-[53px]">
 				<Flex className="w-12 h-12">
