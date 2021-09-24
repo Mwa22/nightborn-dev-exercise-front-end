@@ -23,9 +23,10 @@ const SearchField = ({
 			}`}
 			onClick={() => ref?.current?.focus()}
 		>
-			<GlassIcon width="1.37625rem" height="1.37625rem" color="#000000" />
+			<GlassIcon width="22.02" height="22.02" color="#000000" />
 			<input
 				ref={ref}
+				type="text"
 				className="ml-[1.06125rem] w-full focus:outline-none"
 				name={name}
 				value={value}

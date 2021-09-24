@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router";
 import { FONT_SIZES, FONT_WEIGHT } from "../../../../../../constants/fonts";
 import SearchField from "../../../../../all/fields/search-field";
 import AddIcon from "../../../../../all/icons/add";
@@ -9,6 +10,9 @@ const UsersListActions = ({
 	search = "",
 	setSearch,
 }: UsersListActionsProps) => {
+	//Attributes
+	const router = useRouter();
+
 	//Render
 	return (
 		<Flex justify="between" align="center" className="w-full">
@@ -19,9 +23,9 @@ const UsersListActions = ({
 				setValue={setSearch}
 			/>
 			<Flex
-				className="bg-white space-x-3 rounded-[1.125rem] shadow-t1 p-[.625rem] cursor-pointer"
+				className="bg-white space-x-3 rounded-[1.125rem] shadow-t1 py-[.625rem] pl-[.625rem] pr-[2.0625rem] cursor-pointer"
 				align="center"
-				onClick={() => null} // TODO: navigate to add new user page
+				onClick={() => router.push("/users/add-user")}
 			>
 				<Flex
 					justify="center"
@@ -29,8 +33,8 @@ const UsersListActions = ({
 					className="w-[2.375rem] h-[2.375rem] bg-blue rounded-xl"
 				>
 					<AddIcon
-						width="1.125rem"
-						height="1.125rem"
+						width="18"
+						height="18"
 						fill="#FFFFFF"
 					/>
 				</Flex>

@@ -26,7 +26,7 @@ const UserField = ({ user }: UserFieldProps) => {
 				className="bg-orange rounded-full cursor-pointer w-6 h-6"
 				onClick={() => null} // TODO: Navigate to edit user page
 			>
-				<ArrowRightIcon width=".7rem" height=".6rem" fill="#FFFFFF" />
+				<ArrowRightIcon width="11.2" height="9.6" fill="#FFFFFF" />
 			</Flex>
 		</Flex>
 	);

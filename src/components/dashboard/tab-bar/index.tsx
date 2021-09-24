@@ -32,8 +32,8 @@ const TabBar = () => {
 						icon={(color) => (
 							<ClientsIcon
 								fill={color}
-								width="1.600625rem"
-								height="1.3125rem"
+								width="25.61"
+								height="21"
 							/>
 						)}
 					/>
@@ -42,19 +42,15 @@ const TabBar = () => {
 						icon={(color) => (
 							<UserIcon
 								fill={color}
-								width="1.604375rem"
-								height="1.604375rem"
+								width="25.67"
+								height="25.67"
 							/>
 						)}
 					/>
 					<TabButton
 						selected={false}
 						icon={(color) => (
-							<SettingsIcon
-								fill={color}
-								width="1.75rem"
-								height="1.75rem"
-							/>
+							<SettingsIcon fill={color} width="28" height="28" />
 						)}
 					/>
 					<TabButton
@@ -62,8 +58,8 @@ const TabBar = () => {
 						icon={(color) => (
 							<MoneyIcon
 								fill={color}
-								width="1.66125rem"
-								height="1.510625rem"
+								width="26.58"
+								height="24.17"
 							/>
 						)}
 					/>
@@ -73,11 +69,7 @@ const TabBar = () => {
 			<TabButton
 				selected={false}
 				icon={(color) => (
-					<SignOutIcon
-						fill={color}
-						width="1.705rem"
-						height="1.625rem"
-					/>
+					<SignOutIcon fill={color} width="27.28" height="26px" />
 				)}
 			/>
 		</Flex>
