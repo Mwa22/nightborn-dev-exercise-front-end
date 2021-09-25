@@ -1,8 +1,7 @@
 import { Form, Formik } from "formik";
 import React from "react";
 import Flex from "../../../shared/composers/flex";
-import Page from "../../../shared/composers/page";
-import TabBar from "../../tab-bar";
+import { Role } from "../edit-user/types";
 import AddUserBody from "./body";
 import AddUserHeader from "./header";
 import { AddUserFormik } from "./types";
@@ -16,7 +15,7 @@ const AddUser = () => {
 				first_name: "",
 				last_name: "",
 				email: "",
-				role: "",
+				role: Role.RegularUser,
 				password: "",
 				confirm_password: "",
 			}}

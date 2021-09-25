@@ -4,14 +4,10 @@ export const validationAddUserSchema = Yup.object({
 	first_name: Yup.string().required(),
 	last_name: Yup.string().required(),
 	email: Yup.string().email().required(),
-	role: Yup.array()
-		.of(
-			Yup.object().shape({
-				label: Yup.string().required(),
-				value: Yup.number().required(),
-			})
-		)
-		.required(),
+	role: Yup.object().required().shape({
+		label: Yup.string().required(),
+		value: Yup.number().required(),
+	}),
 	password: Yup.string()
 		.required()
 		.matches(

@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import InputField from "../../../../all/fields/input-field";
+import SelectField from "../../../../all/fields/select-field";
 import FormBox from "../../../../all/form/box";
 import FieldLabel from "../../../../all/form/field-label";
 import Flex from "../../../../shared/composers/flex";
+import { Role } from "../types";
 
 const EditUserBody = () => {
 	//Attributes
@@ -33,10 +35,16 @@ const EditUserBody = () => {
 			],
 			[
 				<FieldLabel label="Role">
-					<InputField
-						type="text"
+					<SelectField
 						name="role"
 						placeholder="select role"
+						options={[
+							{
+								label: "Administrator",
+								value: Role.Administrator,
+							},
+							{ label: "Regular user", value: Role.RegularUser },
+						]}
 					/>
 				</FieldLabel>,
 			],

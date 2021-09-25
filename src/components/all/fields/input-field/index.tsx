@@ -1,4 +1,4 @@
-import { Field, useField, useFormikContext } from "formik";
+import { Field, useField } from "formik";
 import { FONT_SIZES, FONT_WEIGHT } from "../../../../constants/fonts";
 import { InputFieldProps } from "./props";
 

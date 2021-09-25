@@ -4,14 +4,10 @@ export const validationEditUserSchema = Yup.object({
 	first_name: Yup.string().optional(),
 	last_name: Yup.string().optional(),
 	email: Yup.string().email().optional(),
-	role: Yup.array()
-		.of(
-			Yup.object().shape({
-				label: Yup.string().required(),
-				value: Yup.number().required(),
-			})
-		)
-		.optional(),
+	role: Yup.object().nullable().shape({
+		label: Yup.string().required(),
+		value: Yup.number().required(),
+	}),
 	password: Yup.string()
 		.optional()
 		.matches(

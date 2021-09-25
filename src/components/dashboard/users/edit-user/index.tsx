@@ -5,7 +5,7 @@ import Page from "../../../shared/composers/page";
 import TabBar from "../../tab-bar";
 import EditUserBody from "./body";
 import EditUserHeader from "./header";
-import { EditUserFormik } from "./types";
+import { EditUserFormik, Role } from "./types";
 import { validationEditUserSchema } from "./validate";
 
 const EditUser = () => {
@@ -14,9 +14,9 @@ const EditUser = () => {
 	const user = {
 		id: "0",
 		first_name: "Lisa",
-		last_name: " De Groof",
+		last_name: "De Groof",
 		email: "lisa@luminecapital.com",
-		role: "Regular user",
+		role: Role.RegularUser,
 	};
 
 	//Render
