@@ -22,23 +22,15 @@ const AddUser = () => {
 			}}
 			validationSchema={validationAddUserSchema}
 			onSubmit={(values) => {
-				console.log(values);
+				console.log(values); // TODO: handle data
 			}}
 		>
-			<Page>
-				<Flex className="h-full">
-					<TabBar />
-					<Form className="flex-grow h-full">
-						<Flex
-							dir="col"
-							className="flex-grow h-full p-5 space-y-5"
-						>
-							<AddUserHeader />
-							<AddUserBody />
-						</Flex>
-					</Form>
+			<Form className="flex-grow h-full">
+				<Flex dir="col" className="flex-grow h-full p-5 space-y-5">
+					<AddUserHeader />
+					<AddUserBody />
 				</Flex>
-			</Page>
+			</Form>
 		</Formik>
 	);
 };

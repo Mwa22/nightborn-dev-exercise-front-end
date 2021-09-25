@@ -8,17 +8,12 @@ import UsersListHeader from "./header";
 const UsersList = () => {
 	//Render
 	return (
-		<Page>
-			<Flex className="h-full">
-				<TabBar />
-				<Flex className="flex-grow mx-[9.0625rem] my-[3.75rem]">
-					<Flex dir="col" className="w-full space-y-[2.3125rem]">
-						<UsersListHeader />
-						<UsersListBody />
-					</Flex>
-				</Flex>
+		<Flex className="flex-grow mx-[9.0625rem] my-[3.75rem]">
+			<Flex dir="col" className="w-full space-y-[2.3125rem]">
+				<UsersListHeader />
+				<UsersListBody />
 			</Flex>
-		</Page>
+		</Flex>
 	);
 };
 

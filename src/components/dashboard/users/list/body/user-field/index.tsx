@@ -1,3 +1,4 @@
+import { useRouter } from "next/dist/client/router";
 import { FONT_SIZES, FONT_WEIGHT } from "../../../../../../constants/fonts";
 import ArrowRightIcon from "../../../../../all/icons/arrow-right";
 import Flex from "../../../../../shared/composers/flex";
@@ -5,6 +6,9 @@ import Text from "../../../../../shared/text";
 import { UserFieldProps } from "./props";
 
 const UserField = ({ user }: UserFieldProps) => {
+	//Attributes
+	const router = useRouter();
+
 	//Render
 	return (
 		<Flex
@@ -24,7 +28,7 @@ const UserField = ({ user }: UserFieldProps) => {
 				justify="center"
 				align="center"
 				className="bg-orange rounded-full cursor-pointer w-6 h-6"
-				onClick={() => null} // TODO: Navigate to edit user page
+				onClick={() => router.push(`/users/edit-user/${user?.id}`)}
 			>
 				<ArrowRightIcon width="11.2" height="9.6" fill="#FFFFFF" />
 			</Flex>
