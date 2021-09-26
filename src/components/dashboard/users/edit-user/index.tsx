@@ -64,9 +64,7 @@ const EditUser = () => {
 					});
 
 					refetch();
-				} catch (err) {
-					console.error(err);
-				}
+				} catch (err) {}
 			}}
 		>
 			<Form className="flex-grow h-full">
