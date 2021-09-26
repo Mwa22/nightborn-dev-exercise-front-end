@@ -1,38 +1,72 @@
 import { Form, Formik } from "formik";
-import React from "react";
+import { useRouter } from "next/dist/client/router";
+import React, { Fragment } from "react";
+import {
+	useGetUserById,
+	useUpdateUser,
+} from "../../../../services/users/users";
+import { Role, UpdateUserInput } from "../../../../types/dtos";
 import Flex from "../../../shared/composers/flex";
-import Page from "../../../shared/composers/page";
-import TabBar from "../../tab-bar";
 import EditUserBody from "./body";
 import EditUserHeader from "./header";
-import { EditUserFormik, Role } from "./types";
+import { EditUserFormik } from "./types";
 import { validationEditUserSchema } from "./validate";
 
 const EditUser = () => {
 	//Attributes
-	// TODO: Get data from back-end
-	const user = {
-		id: "0",
-		first_name: "Lisa",
-		last_name: "De Groof",
-		email: "lisa@luminecapital.com",
-		role: Role.RegularUser,
-	};
+	const router = useRouter();
+	const { id } = router.query;
+
+	const {
+		data: user,
+		isLoading,
+		refetch,
+	} = useGetUserById(id?.toString() ?? "", {
+		query: { enabled: !!id },
+	});
+	const { mutateAsync: updateUser } = useUpdateUser();
+
+	if (isLoading) return <Fragment />;
 
 	//Render
 	return (
 		<Formik<EditUserFormik>
 			initialValues={{
-				first_name: user?.first_name,
-				last_name: user?.last_name,
-				email: user?.email,
-				role: user?.role,
+				first_name: user?.first_name ?? "",
+				last_name: user?.last_name ?? "",
+				email: user?.email ?? "",
+				role: user?.role ?? Role.RegularUser,
 				password: "",
 				confirm_password: "",
 			}}
 			validationSchema={validationEditUserSchema}
-			onSubmit={(values) => {
-				console.log(values); // TODO: handle data
+			onSubmit={async (values) => {
+				const newUser: UpdateUserInput = {
+					first_name: values.first_name,
+					last_name: values.last_name,
+					email: values.email,
+					role: values.role,
+				};
+
+				if (
+					values.password &&
+					values.confirm_password &&
+					values.password !== "" &&
+					values.confirm_password !== ""
+				) {
+					newUser.password = values.password;
+				}
+
+				try {
+					await updateUser({
+						id: Array.isArray(id) ? id[0] : id ?? "",
+						data: newUser,
+					});
+
+					refetch();
+				} catch (err) {
+					console.error(err);
+				}
 			}}
 		>
 			<Form className="flex-grow h-full">

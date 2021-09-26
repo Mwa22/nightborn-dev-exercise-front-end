@@ -1,4 +1,4 @@
-import { Role } from "../edit-user/types";
+import { Role } from "../../../../types/dtos";
 
 export interface AddUserFormik {
 	first_name: string;

@@ -28,7 +28,7 @@ const UserField = ({ user }: UserFieldProps) => {
 				justify="center"
 				align="center"
 				className="bg-orange rounded-full cursor-pointer w-6 h-6"
-				onClick={() => router.push(`/users/edit-user/${user?.id}`)}
+				onClick={() => router.push(`/users/edit-user/${user?.ID}`)}
 			>
 				<ArrowRightIcon width="11.2" height="9.6" fill="#FFFFFF" />
 			</Flex>

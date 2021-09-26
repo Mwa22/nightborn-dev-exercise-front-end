@@ -1,3 +1,5 @@
+import { Role } from "../../../../types/dtos";
+
 export interface EditUserFormik {
 	first_name: string;
 	last_name: string;
@@ -5,10 +7,4 @@ export interface EditUserFormik {
 	role: Role;
 	password: string;
 	confirm_password: string;
-}
-
-// TODO: get Role enum from back-end
-export enum Role {
-	Administrator = 0,
-	RegularUser,
 }

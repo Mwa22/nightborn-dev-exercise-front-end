@@ -1,10 +1,10 @@
 import { useMemo } from "react";
+import { Role } from "../../../../../types/dtos";
 import InputField from "../../../../all/fields/input-field";
 import SelectField from "../../../../all/fields/select-field";
 import FormBox from "../../../../all/form/box";
 import FieldLabel from "../../../../all/form/field-label";
 import Flex from "../../../../shared/composers/flex";
-import { Role } from "../types";
 
 const EditUserBody = () => {
 	//Attributes

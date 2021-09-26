@@ -1,3 +1,5 @@
+import { User } from "../../../../../types/dtos";
+
 export interface EditUserHeaderProps {
-	user: any; // Get User type from back-end
+	user?: User;
 }

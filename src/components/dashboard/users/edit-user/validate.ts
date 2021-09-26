@@ -1,13 +1,11 @@
 import * as Yup from "yup";
+import { Role } from "../../../../types/dtos";
 
 export const validationEditUserSchema = Yup.object({
 	first_name: Yup.string().optional(),
 	last_name: Yup.string().optional(),
 	email: Yup.string().email().optional(),
-	role: Yup.object().nullable().shape({
-		label: Yup.string().required(),
-		value: Yup.number().required(),
-	}),
+	role: Yup.string().oneOf(Object.values(Role)).optional(),
 	password: Yup.string()
 		.optional()
 		.matches(

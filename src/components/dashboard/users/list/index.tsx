@@ -1,7 +1,5 @@
 import React from "react";
 import Flex from "../../../shared/composers/flex";
-import Page from "../../../shared/composers/page";
-import TabBar from "../../tab-bar";
 import UsersListBody from "./body";
 import UsersListHeader from "./header";
 

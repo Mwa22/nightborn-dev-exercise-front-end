@@ -1,13 +1,17 @@
 import { Form, Formik } from "formik";
 import React from "react";
+import { useAddUser } from "../../../../services/users/users";
+import { Role, User } from "../../../../types/dtos";
 import Flex from "../../../shared/composers/flex";
-import { Role } from "../edit-user/types";
 import AddUserBody from "./body";
 import AddUserHeader from "./header";
 import { AddUserFormik } from "./types";
 import { validationAddUserSchema } from "./validate";
 
 const AddUser = () => {
+	//Attributes
+	const { mutate: addUser } = useAddUser();
+
 	//Render
 	return (
 		<Formik<AddUserFormik>
@@ -21,7 +25,17 @@ const AddUser = () => {
 			}}
 			validationSchema={validationAddUserSchema}
 			onSubmit={(values) => {
-				console.log(values); // TODO: handle data
+				const newUser: User = {
+					first_name: values.first_name,
+					last_name: values.last_name,
+					email: values.email,
+					role: values.role,
+					password: values.password,
+				};
+
+				addUser({
+					data: newUser,
+				});
 			}}
 		>
 			<Form className="flex-grow h-full">

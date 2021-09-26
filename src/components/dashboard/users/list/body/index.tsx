@@ -1,37 +1,12 @@
 import { useMemo, useState } from "react";
+import { useGetAll } from "../../../../../services/users/users";
 import Flex from "../../../../shared/composers/flex";
 import UsersListActions from "./actions";
 import UserField from "./user-field";
 
 const UsersListBody = () => {
 	//Attributes
-	// TODO: get from back-end
-	const users = [
-		{
-			id: "0",
-			first_name: "David",
-			last_name: "Leclerq",
-			role: "Administrator",
-		},
-		{
-			id: "1",
-			first_name: "Matthieu",
-			last_name: "Bocquet",
-			role: "Administrator",
-		},
-		{
-			id: "2",
-			first_name: "Sharon",
-			last_name: "Dupont",
-			role: "Regular user",
-		},
-		{
-			id: "3",
-			first_name: "Lisa",
-			last_name: "De Groof",
-			role: "Regular user",
-		},
-	];
+	const { data: users } = useGetAll();
 
 	const [search, setSearch] = useState<string>();
 
@@ -55,7 +30,7 @@ const UsersListBody = () => {
 			<UsersListActions search={search} setSearch={setSearch} />
 			<Flex className="flex-wrap gap-[1.875rem]">
 				{usersFilterd?.map((user) => (
-					<UserField key={`user_${user.id}`} user={user} />
+					<UserField key={`user_${user.ID}`} user={user} />
 				))}
 			</Flex>
 		</Flex>

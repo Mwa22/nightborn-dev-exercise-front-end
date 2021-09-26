@@ -53,13 +53,10 @@ const SelectField = ({ name, options, placeholder }: SelectFieldProps) => {
 				NoOptionsMessage,
 			}}
 			value={
-				options
-					? options.find(
-							(option: any) => option.value === field.value?.value
-					  )
-					: ""
+				options?.find((option: any) => option.value === field.value) ??
+				""
 			}
-			onChange={(option: any) => setFieldValue(field.name, option)}
+			onChange={(option: any) => setFieldValue(field.name, option.value)}
 		/>
 	);
 };
